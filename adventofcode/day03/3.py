@@ -7,9 +7,9 @@ def main():
     part_two(packs.copy())
 
 
-def parse(file):
+def parse(file_path):
     packs = []
-    with open(file) as file:
+    with open(file_path) as file:
         packs = [line.strip() for line in file]
     return packs
 

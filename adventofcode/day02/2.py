@@ -7,9 +7,9 @@ def main():
     part_two(rounds.copy())
 
 
-def parse(file):
+def parse(file_path):
     rounds = []
-    with open(file) as file:
+    with open(file_path) as file:
         for line in file:
             line = line.strip()
             opponent, my = line.split(" ")

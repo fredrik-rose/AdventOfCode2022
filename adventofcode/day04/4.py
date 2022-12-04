@@ -7,9 +7,9 @@ def main():
     part_two(pairs.copy())
 
 
-def parse(file):
+def parse(file_path):
     pairs = []
-    with open(file) as file:
+    with open(file_path) as file:
         for line in file:
             pair = line.strip().split(",")
             assert len(pair) == 2

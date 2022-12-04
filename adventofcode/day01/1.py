@@ -1,9 +1,9 @@
 # Day 1: Calorie Counting
 
 
-def parse(file):
+def parse(file_path):
     elves = []
-    with open(file) as file:
+    with open(file_path) as file:
         num_calories = 0
         for line in file:
             line = line.strip()
