@@ -12,6 +12,8 @@ for group in (items[i:i + N] for i in range(0, len(items), N)):
     pass
 ```
 
+Avoid `eval()` or at least use `ast.literal_eval()` instead.
+
 ## Math
 
 
