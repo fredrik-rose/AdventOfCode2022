@@ -14,6 +14,23 @@ for group in (items[i:i + N] for i in range(0, len(items), N)):
 
 Avoid `eval()` or at least use `ast.literal_eval()` instead.
 
+collections.deque is a useful data structure. It has fast remove and insert at both ends and has
+support for e.g. rotations.
+
+## C++
+
+For problems that requires speed Python may not cut it. C++ is a good option in these cases as it
+fast and has some useful data structures and algorithms as part of the standard. Parsing the input
+is however in many cases much easier in Python. An idea is to parse and preprocess the data in
+Python and generate a C++ header file to include. The `fscanf()` function may be useful if one
+decides to parse in C++. See day 16 for an example.
+
+## DOT
+
+The DOT language is useful for visualizing graphs. See day 16 for an example.
+
+<img src="adventofcode/day16/graph_simple.png" width="800"/>
+
 ## Math
 
 
