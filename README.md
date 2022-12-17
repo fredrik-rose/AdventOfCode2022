@@ -3,6 +3,21 @@
 Solutions for the advent of code 2022 puzzles, implemented in Python. The
 puzzles can be found here: https://adventofcode.com/2022
 
+## Algorithms
+
+### Cycle Detection
+
+To detect a cycle:
+
+1. Determine what the `state` is, i.e. the things needed to determine if a certain set of conditions
+   has occurred before.
+2. For each iteration check if the current `state` is in `visited` states.
+3. If false, add current `state` to visited.
+4. If true, cycle detected. If conditions from the previous time this `state` occurred are needed
+   use a dict for `visited` where the keys are the `state` and the conditions are the keys.
+
+See day 17 for an example.
+
 ## Python
 
 Iterate a list in groups of size `N`:
