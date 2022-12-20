@@ -18,6 +18,10 @@ To detect a cycle:
 
 See day 17 for an example.
 
+### Circular Doubly Linked List
+
+See algorithms.py for an example how how to create a circular double linked list.
+
 ## Python
 
 Iterate a list in groups of size `N`:
@@ -47,7 +51,6 @@ The DOT language is useful for visualizing graphs. See day 16 for an example.
 <img src="adventofcode/day16/graph_simple.png" width="800"/>
 
 ## Math
-
 
 ### Modulo
 
