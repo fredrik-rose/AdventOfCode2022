@@ -22,6 +22,14 @@ See day 17 for an example.
 
 See algorithms.py for an example how how to create a circular double linked list.
 
+### Cube
+
+There is a method called "cube mapping" that uses the six faces of a cube as tiles. It is then
+possible to convert between a `(x, y, z)` coordinate on the surface of the cube and a `(face, u, v)`
+coordinate of a tile/face. See https://en.wikipedia.org/wiki/Cube_mapping for more details.
+
+<img src="adventofcode/day22/cube_fold.png" width="400"/>
+
 ## Python
 
 Iterate a list in groups of size `N`:
@@ -51,6 +59,13 @@ The DOT language is useful for visualizing graphs. See day 16 for an example.
 <img src="adventofcode/day16/graph_simple.png" width="800"/>
 
 ## Math
+
+### Complex Numbers
+
+It is useful to represent a 2D coordinate system using complex numbers. Translations can then
+easily be performed with complex addition and rotation can be performed by complex multiplication.
+To rotate clockwise multiply the coordinate/vector by `i`, to rotate counter clockwise multiply by
+`-i`. See day 22 for an example.
 
 ### Modulo
 
