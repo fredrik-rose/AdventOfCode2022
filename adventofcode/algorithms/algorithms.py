@@ -56,6 +56,21 @@ def derivative(f, x, h=1):
     return (f(x + h) - f(x)) / h
 
 
+def binary_search_descening_order(get_item, target, low, high):
+    if high < low:
+        return None
+    mid = (high + low) // 2
+    value = get_item(mid)  # get_item is a function, an alternative is to pass in a list 'items' and use items[mid].
+    if value == target:
+        return mid
+    # Swap the comparisons below if the items are ordered in ascending order.
+    elif target > value:
+        return binary_search_descening_order(get_item, target, low, mid - 1)
+    elif target < value:
+        return binary_search_descening_order(get_item, target, mid + 1, high)
+    assert False
+
+
 def breadth_first_search(graph, start, end, neighbors_generator):
     visited = set(start)
     queue = coll.deque([(start, 0)])

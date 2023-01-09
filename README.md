@@ -5,6 +5,12 @@ puzzles can be found here: https://adventofcode.com/2022
 
 ## Algorithms
 
+### Binary Search
+
+See `algorithms.py` for details (note that this implementations assumes items to be ordered in
+descending order). Can be used to e.f. finding the root of a function (known as the bisection
+method).
+
 ### Cycle Detection
 
 To detect a cycle:
@@ -20,7 +26,7 @@ See day 17 for an example.
 
 ### Circular Doubly Linked List
 
-See algorithms.py for an example how how to create a circular double linked list.
+See `algorithms.py` for an example how how to create a circular double linked list.
 
 ### Cube
 

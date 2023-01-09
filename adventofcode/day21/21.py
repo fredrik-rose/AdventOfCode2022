@@ -42,7 +42,9 @@ def part_two(monkeys):
     monkeys["humn"] = None
     monkeys["root"] = ("-", ) + monkeys["root"][1:]
     answer = monkey_match("root", 0, monkeys)
-    assert algo.newtons_method(get_f("root", monkeys), 0, 1000) == answer
+    f = get_f("root", monkeys)
+    assert algo.newtons_method(f, 0, 1000) == answer
+    assert algo.binary_search_descening_order(f, 0, -1e15, 1e15) == answer
     print(f"Part two: {int(answer)}")
 
 
