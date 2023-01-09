@@ -5,6 +5,13 @@ puzzles can be found here: https://adventofcode.com/2022
 
 ## Algorithms
 
+### A*
+
+A useful trick if using `heapq` as priority queue is to use `(priority, priority_counter)` as
+priority instead of just `priority`. Then ech priority will be unique and the "data" part of the
+tuple will not be used for comparison (the data part may not have support for comparison). For an
+example see day 24.
+
 ### Binary Search
 
 See `algorithms.py` for details (note that this implementations assumes items to be ordered in
