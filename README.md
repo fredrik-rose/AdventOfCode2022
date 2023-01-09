@@ -79,6 +79,30 @@ the same principle as above but use `N1*N2*...Nn` as `N` (or rather the least co
 `N`s). This means that by performing `X` modulo `N` after each operation, then performing `X`
 modulo `Ni` will give the expected (correct) result.
 
+### Newton's Method
+
+Can be used to find to root (i.e. the x value for which the function is 0) of a function `f`.
+
+```
+X0 = initial_guess
+
+Iterate:
+    Xn+1 = Xn - f(Xn) / f'(Xn)
+```
+
+The idea is to estimate the function as the tangent line at `X` (i.e. `f'(X)`) and calculate
+where this estimated function is 0. This is quite simple, all we need to find is where this line
+crosses the x-axis. The next `X` is set to this intersection point. Note that this works best for
+monotonic functions, more complicated functions may not converge at all due to e.g. a bad initial
+estimate or due to "overshoot" of the zero point.
+
+If `f'(X)` is difficult to get analytically it can be estimated as:
+
+```
+def derivative(f, x, h=1):
+    return (f(x + h) - f(x)) / h
+```
+
 ### Rotate Matrix 45 Degrees
 
 Rotating a square matrix 45 degrees can be done as follows:

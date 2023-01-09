@@ -1,5 +1,11 @@
 # Day 21: Monkey Math
 import copy
+import os
+import sys
+
+# pylint: disable=c-extension-no-member
+sys.path.append(os.path.join(sys.path[0], '..', 'algorithms'))
+import algorithms as algo  # # noqa: E402, pylint: disable=wrong-import-position
 
 
 class MonkeyError(Exception):
@@ -28,27 +34,22 @@ def parse(file_path):
 
 
 def part_one(monkeys):
-    answer = monkey_eval("root", monkeys)
+    answer = int(monkey_eval("root", monkeys))
     print(f"Part one: {answer}")
 
 
 def part_two(monkeys):
     monkeys["humn"] = None
-    _, operand_a, operand_b = monkeys["root"]
-    try:
-        match = monkey_eval(operand_a, monkeys)
-        expression = operand_b
-    except MonkeyError:
-        match = monkey_eval(operand_b, monkeys)
-        expression = operand_a
-    answer = monkey_match(expression, match, monkeys)
-    print(f"Part two: {answer}")
+    monkeys["root"] = ("-", ) + monkeys["root"][1:]
+    answer = monkey_match("root", 0, monkeys)
+    assert algo.newtons_method(get_f("root", monkeys), 0, 1000) == answer
+    print(f"Part two: {int(answer)}")
 
 
 def monkey_eval(expression, env):
     if expression is None:
         raise MonkeyError()
-    if isinstance(expression, int):
+    if isinstance(expression, (int, float)):
         return expression
     if isinstance(expression, str):
         return monkey_eval(env[expression], env)
@@ -67,7 +68,7 @@ def monkey_apply(operator, operand_a, operand_b):
     if operator == "*":
         return operand_a * operand_b
     if operator == "/":
-        return operand_a // operand_b
+        return operand_a / operand_b
     assert False
 
 
@@ -114,6 +115,14 @@ def monkey_match_left(operator, operand_a, operand_b, match, env):
     if operator == "/":
         match = match * right
     return monkey_match(operand_a, match, env)
+
+
+def get_f(expression, monkeys):
+    def f(x):
+        monkeys["humn"] = x
+        return monkey_eval(expression, monkeys)
+
+    return f
 
 
 if __name__ == "__main__":

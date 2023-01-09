@@ -41,6 +41,21 @@ def create_circular_doubly_linked_list(items):
     return first
 
 
+def newtons_method(f, x0, steps, df_dx=None):
+    if df_dx is None:
+        df_dx = lambda x: derivative(f, x)
+    x = x0
+    for _ in range(steps):
+        if f(x) == 0:
+            return x
+        x = x - f(x) / df_dx(x)
+    return x
+
+
+def derivative(f, x, h=1):
+    return (f(x + h) - f(x)) / h
+
+
 def breadth_first_search(graph, start, end, neighbors_generator):
     visited = set(start)
     queue = coll.deque([(start, 0)])
