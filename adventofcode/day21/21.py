@@ -72,6 +72,7 @@ def monkey_apply(operator, operand_a, operand_b):
     if operator == "/":
         return operand_a / operand_b
     assert False
+    return None
 
 
 def monkey_match(expression, match, env):

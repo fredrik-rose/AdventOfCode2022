@@ -43,7 +43,7 @@ def create_circular_doubly_linked_list(items):
 
 def newtons_method(f, x0, steps, df_dx=None):
     if df_dx is None:
-        df_dx = lambda x: derivative(f, x)
+        df_dx = lambda x: derivative(f, x)  # noqa: E731
     x = x0
     for _ in range(steps):
         if f(x) == 0:
@@ -68,7 +68,7 @@ def binary_search_descening_order(get_item, target, low, high):
         return binary_search_descening_order(get_item, target, low, mid - 1)
     elif target < value:
         return binary_search_descening_order(get_item, target, mid + 1, high)
-    assert False
+    return None
 
 
 def breadth_first_search(graph, start, end, neighbors_generator):

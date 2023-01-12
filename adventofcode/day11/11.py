@@ -39,7 +39,7 @@ def parse_monkey(text):
     monkey_id = extract_ints(lines[0])[0]
     items = extract_ints(lines[1])
     # NOTE: This is dangerous!
-    operation = lambda old: eval(lines[2].split("= ")[1])  # noqa
+    operation = lambda old: eval(lines[2].split("= ")[1])  # noqa pylint: disable=eval-used
     test = extract_ints(lines[3])[0]
     true = extract_ints(lines[4])[0]
     false = extract_ints(lines[5])[0]

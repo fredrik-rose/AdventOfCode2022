@@ -42,12 +42,12 @@ def part_one(blueprints):
 
 def part_two(blueprints):
     answer = 1
-    for i, blueprint in list(blueprints.items())[:3]:
+    for _, blueprint in list(blueprints.items())[:3]:
         answer *= find_max_possible_geodes(blueprint, 32)
     print(f"Part two: {answer}")
 
 
-def find_max_possible_geodes(blueprint, end_time):
+def find_max_possible_geodes(blueprint, end_time):  # noqa: C901 pylint: disable=too-many-branches, too-many-statements
     def get_state(r, m, t):
         return (
             1000*r["geode"] + 100*r["obsidian"] + 10*r["clay"] + r["ore"],

@@ -104,7 +104,7 @@ def get_password(position, direction):
     return int(1000 * (position.imag + 1) + 4 * (position.real + 1) + direction_to_password[direction])
 
 
-def get_next_position_on_board(face, position, direction):
+def get_next_position_on_board(face, position, direction):  # noqa: C901 pylint: disable=R0912, R0915
     next_position = position + direction
     next_face = face
     next_direction = direction
@@ -182,7 +182,7 @@ def get_next_position_on_board(face, position, direction):
     return next_face, next_position, next_direction
 
 
-def get_next_position_on_cube(face, position, direction):
+def get_next_position_on_cube(face, position, direction):  # noqa: C901 pylint: disable=R0912, R0915
     next_position = position + direction
     end = SIZE - 1
     real = position.real

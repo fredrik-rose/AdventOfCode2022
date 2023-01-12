@@ -73,7 +73,7 @@ def get_answer(node):
     assert node is not None
     answer = 0
     for _ in range(3):
-        for i in range(1000):
+        for _ in range(1000):
             node = node.right
         answer += node.value
     return answer
