@@ -3,14 +3,30 @@
 Solutions for the advent of code 2022 puzzles, implemented in Python. The
 puzzles can be found here: https://adventofcode.com/2022
 
+A potentially good algorithms book: https://jeffe.cs.illinois.edu/teaching/algorithms/
+
 ## Algorithms
 
-### A*
+### Path Finding
 
-A useful trick if using `heapq` as priority queue is to use `(priority, priority_counter)` as
-priority instead of just `priority`. Then ech priority will be unique and the "data" part of the
-tuple will not be used for comparison (the data part may not have support for comparison). For an
-example see day 24.
+A useful trick if using `heapq` as priority queue (for e.g. Dijkstra or A star) is to use
+`(priority, priority_counter)` as priority instead of just `priority`. Then each priority will be
+unique and the "data" part of the tuple will not be used for comparison (the data part may not have
+support for comparison). For an example see day 24.
+
+Dijkstra is basically breadth first search with a priority queue that selects the closest nodes
+first. A* is an extension of Dijkstra and uses an additional heuristic to add to the priorities.
+An example heuristic is the Manhattan distance to the end node.
+
+Some guidelines for path finding algorithms:
+
+* Use breadth first search if all edges has equal cost
+* Use Dijkstra if the edges have different costs.
+* A* can be used to speed up both BFS and Dijkstra if one can come up with a heuristic to guide
+  the selection of next step to the right direction
+
+A changing 2D grid/map may be seen as a 3D grid/map, especially if there is a cyclic behavior in
+the changes of the 2D map.
 
 ### Binary Search
 
@@ -141,3 +157,7 @@ y = (x' - y') // 2
 Note that the rotated matrix will be translated, see
 [this](https://math.stackexchange.com/questions/732679/how-to-rotate-a-matrix-by-45-degrees) for
 more information.
+
+## Visualization
+
+ffmpeg can be used to create nice visualizations: https://sjmulder.nl/2022/aoc-ffmpeg.html
