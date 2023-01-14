@@ -59,6 +59,14 @@ coordinate of a tile/face. See https://en.wikipedia.org/wiki/Cube_mapping for mo
 
 <img src="adventofcode/day22/cube_fold.png" width="400"/>
 
+### Number Systems
+
+Example of number systems are decimal (base 10), binary (base 2) and hexadecimal (base 16). These
+are all examples of unbalanced number system. In a balanced system there are negative values used.
+For example, an unbalanced base 5 system would have digits 0, 1, 2, 3 and 4. A balanced version of
+this system would have digits -2, -1, 0, 1, and 2. For conversions to and from such system see day
+25.
+
 ## Python
 
 Iterate a list in groups of size `N`:
